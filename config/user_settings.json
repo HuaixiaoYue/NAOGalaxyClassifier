@@ -1,5 +1,5 @@
 {
-    "last_upload_path": "D:/NAO/NAOtrain/test/ClassifierTest",
+    "last_upload_path": "D:\\NAO\\NAOtrain\\test\\ClassifierTest\\images",
     "training_params": {
         "model_size": "nano",
         "img_size": 640,

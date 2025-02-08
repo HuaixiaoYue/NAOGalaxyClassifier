@@ -120,29 +120,11 @@ class MainWindow(QMainWindow):
         
         if folder_path:
             try:
-                # 检查目录结构：每个子文件夹作为一个类别
                 folder_path = Path(folder_path)
-                class_dirs = [d for d in folder_path.iterdir() if d.is_dir()]
                 
-                if not class_dirs:
-                    self.status_label.setText("错误：未找到分类目录，请确保数据按类别分类存放")
-                    return
-                
-                # 递归查找所有图片文件
-                image_files = []
-                for class_dir in class_dirs:
-                    class_images = list(class_dir.glob("**/*.jpg")) + \
-                                 list(class_dir.glob("**/*.png"))
-                    if not class_images:
-                        self.status_label.setText(f"警告：类别 '{class_dir.name}' 中未找到图片文件")
-                        return
-                    image_files.extend(class_images)
-                
-                # 保存数据
+                # 直接保存数据，不做结构校验
                 saved_path = self.path_manager.save_training_data(folder_path)
-                self.status_label.setText(f"数据已保存到: {saved_path}\n"
-                                        f"共 {len(class_dirs)} 个类别，"
-                                        f"{len(image_files)} 个图片文件")
+                self.status_label.setText(f"数据已保存到: {saved_path}")
                 
                 # 启用训练按钮
                 self.train_btn.setEnabled(True)
