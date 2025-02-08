@@ -1,0 +1,11 @@
+{
+    "last_upload_path": "D:/NAO/NAOtrain/test/ClassifierTest",
+    "training_params": {
+        "model_size": "nano",
+        "img_size": 640,
+        "batch_size": 16,
+        "learning_rate": 0.01,
+        "epochs": 100,
+        "pretrained": true
+    }
+}
